@@ -179,7 +179,7 @@ void FreeMemory(Meeting* start)
         }
 }
 
-/*Meeting* LoadFromTextfile(const char* filename, Meeting *start)
+Meeting* LoadFromTextfile(const char* filename, Meeting *start)
 {
     char file_name[100];
     strcpy(file_name, filename);
@@ -209,46 +209,7 @@ void FreeMemory(Meeting* start)
     fclose(f);
     printf("SUCCESS\n");
     return newstart;
-}*/
-
-/*Meeting* LoadFromTextfile(const char* filename, Meeting *start)
-{
-    FILE *f = fopen(filename, "r");
-	if (!f)
-	{
-		printf("Cannot open file %s for reading.\n", filename);
-	}
-    Meeting *current = start;
-    int month, day, hour = 0;
-    int bignumber = 1000;
-	//char* strfile = calloc(1, bignumber);
-    //char* description = calloc(1, bignumber);
-    char strfile[1000];
-    char description[1000];
-
-    while(current->next != NULL)
-    {
-        fgets(strfile, bignumber, f);
-        sscanf(strfile,"%s %d.%d at %d", description, &day, &month, &hour);
-        current->description = realloc(current->description, (strlen(description) + 1) * sizeof(char));
-        strcpy(current->description, description);
-        current->month = month;
-        current->day = day;
-        current->hour = hour;
-        current = current->next;
-    }
-
-    while(fgets(strfile, bignumber, f))
-    {
-        sscanf(strfile,"%s %d.%d at %d", description, &day, &month, &hour);
-        current->next = AddMeeting(start, description, month, day, hour);
-        current = current->next;
-    }
-
-    fclose(f);
-    printf("SUCCESS\n");
-    return current;
-}*/
+}
 
 
 
